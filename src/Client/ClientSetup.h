@@ -96,23 +96,23 @@ public:
         bypass->windowPos = ImVec2(50 + (50 + (Client::instance->tileSize.x)) * 0, 50);
 
 
-        bypass->modules.push_back(new Module("Practice Music Sync", "practice-bypass", "Unlocks the Practice Music Sync button in the pause menu options"));
-        bypass->modules.push_back(new Module("Unlock All Icons", "icon-bypass", "It... Unlocks all the icons, You should know what this does"));
+        bypass->modules.push_back(new Module("Pratik Senkronizasyonu", "practice-bypass", "Pratik Senkronizasyonunu Bekleme Menusu Ayarlarindan Açar"));
+        bypass->modules.push_back(new Module("Butun Simgeleri Ac", "icon-bypass", "moruk bunun ne yaptigini bilmiyorsan git ingilizcede oyna amk"));
 
-        bypass->modules.push_back(new Module("Music Unlocker", "music-bypass", "Unlocks the menu and practice music buttons"));
-        bypass->modules.push_back(new Module("Fire in the hole!", "fire-in-the-hole", "Replaces every single sfx with\n<cr>FIRE IN THE HOLE!</c>"));
+        bypass->modules.push_back(new Module("Muzik Acici", "music-bypass", "Menu ve Pratik muzik ayarlarini acar."));
+        bypass->modules.push_back(new Module("ATESTEKI DELIK!", "fire-in-the-hole", "Butun sfxleri\n<cr>ATESTEKI DELIK</c>ile degistirir."));
 
-        bypass->modules.push_back(new Module("Copy any level", "copy-hack", "Allows you to copy any level from the servers\nCode by <co>Firee</c>"));
-        bypass->modules.push_back(new Module("No Copy Mark", "noc-hack", "Hides the (c) mark from your levels on publish.\nCode by <co>Firee</c>"));
+        bypass->modules.push_back(new Module("Herhangi Bir Seviyeyi Kopyalama", "copy-hack", "Sunuculardaki herhangi bir seviyeyi kopyalamani saglar.\nCode by <co>Firee</c>"));
+        bypass->modules.push_back(new Module("Kopya Isareti Yok", "noc-hack", "Sunuculara yukledigin seviyelerde isminin sonundaki C isaretini kaldirir.\nCode by <co>Firee</c>"));
 
-        bypass->modules.push_back(new Module("Auto Safe mode", "auto-safe-mode", "Automatically enables safe mode if you have cheats enabled", true));
+        bypass->modules.push_back(new Module("Otomatik Guvenli Mod", "auto-safe-mode", "Hilelerin varsa otomatik olarak <cl>Guvenli Mod</c>'u etkinlestir.", true));
         bypass->modules.push_back(new Module("Safe mode", "safe-mode", "Disables all progress on levels"));
 
-        bypass->modules.push_back(new Module("Character Limit", "char-limit", "Removes the <cl>character limit</c> on input fields", false, "<cr>Warning!</c>\nThis module has been <cl>known</c> to cause issues on <cg>some</c> devices such as:\n<cl>- Crashing when you type</c>\n- Crashing when the input field goes away.\nIf the game crashes pressing an ok button, <cr>Disable</c> this module", true));
-        bypass->modules.push_back(new Module("Character Filter", "char-filter", "Allows you to input <cg>any</c> character in input fields", false, "<cr>Warning!</c>\nThis module has been <cl>known</c> to cause issues on <cg>some</c> devices such as:\n<cl>- Crashing when you type</c>\n- Crashing when the input field goes away.\nIf the game crashes pressing an ok button, <cr>Disable</c> this module", true));
+        bypass->modules.push_back(new Module("Karakter Limiti", "char-limit", "<cl>Karakter Limitini</c> yazi kutularindan kaldirir.bunu niye okuyosun.ciksana.", false, "<cr>Warning!</c>\nThis module has been <cl>known</c> to cause issues on <cg>some</c> devices such as:\n<cl>- Crashing when you type</c>\n- Crashing when the input field goes away.\nIf the game crashes pressing an ok button, <cr>Disable</c> this module", true));
+        bypass->modules.push_back(new Module("Karakter Filtresi", "char-filter", "<cg>Herhangi</c> bir karakteri yazi kutularina yazmana izin verir.", false, "<cr>Warning!</c>\nThis module has been <cl>known</c> to cause issues on <cg>some</c> devices such as:\n<cl>- Crashing when you type</c>\n- Crashing when the input field goes away.\nIf the game crashes pressing an ok button, <cr>Disable</c> this module", true));
 
-        bypass->modules.push_back(new Module("Auto Song Download", "auto-song", "Automatically downloads songs when you open a level"));
-        bypass->modules.push_back(new Module("Full Options Menu", "full-options", "Replaces the mini options menu in the pause menu with the full options menu"));
+        bypass->modules.push_back(new Module("Otomatik Sarki Yukle", "auto-song", "Bir seviyeye girdiginde <co>otomatik olarak</c> sarki yukler."));
+        bypass->modules.push_back(new Module("Tam ayar menusu", "full-options", "Durdurma menusundeki kucuk ayarlari <co>Tam ayarlar</c> ile degistir."));
 
         #ifdef GEODE_IS_ANDROID
         //bypass->modules.push_back(new Module("Slider Limit Bypass", "slider-limit", "Allows sliders to go beyond the limit of the slider. <cr>Doesn't work for scaling in the editor currently</c>"));
@@ -122,22 +122,22 @@ public:
         Client::instance->windows.push_back(bypass);
     }
 
-    static void SetupCosmetic()
+    static void SetupKozmetik()
     {
         Window* cosmetic = new Window();
-        cosmetic->name = "Cosmetic";
+        cosmetic->name = "Kozmetik";
         cosmetic->id = "cosmetic-window";
         cosmetic->windowPos = ImVec2(50 + (50 + (Client::instance->tileSize.x)) * 3, 50);
 
         //cosmetic->modules.push_back(new Module("Hide Endscreen BTN", "end-screen", "Adds an arrow to hide the end screen"));
-        cosmetic->modules.push_back(new Module("No Transition", "no-trans", "Disables the fade scene transitions"));
-        cosmetic->modules.push_back(new Module("No Camera Shake", "no-shake", "Disables camera shake globally"));
+        cosmetic->modules.push_back(new Module("Gecis Yok", "no-trans", "Gecislerdeki solma eylemini kaldirir."));
+        cosmetic->modules.push_back(new Module("Kamera Sallantisi Yok", "no-shake", "Evrensel olarak kamera sallanma eylemlerini kaldirir."));
         //cosmetic->modules.push_back(new Module("Thicker Hitboxes", "thick-hitbox", "Makes the hitboxes in gd thicker ;)"));
 
-        cosmetic->modules.push_back(new Module("No Shaders", "no-shaders", "Disables shaders, <cl>maybe read</c> the name"));
-        cosmetic->modules.push_back(new Module("No Death Effect", "no-death", "Disables the death effect on the player"));
+        cosmetic->modules.push_back(new Module("Golgelendiriciler Yok", "no-shaders", "isimden birsey anlamadin demi,banane."));
+        cosmetic->modules.push_back(new Module("Olum Efektini Kaldir", "no-death", "Oyuncunun olme efektini devre disi birakir,ve bu olundugu an simgenin belirmesini saglar."));
 
-        cosmetic->modules.push_back(new Module("No Wave Trail", "no-wave", "Disables the wave trail"));
+        cosmetic->modules.push_back(new Module("Wave Kuyrugu Yok", "no-wave", "Disables the wave trail"));
         cosmetic->modules.push_back(new Module("Solid Wave Trail", "solid-wave", "Makes the wave trail a solid colour"));
 
         cosmetic->modules.push_back(new Module("Transparent BG", "trans-bg", "Disables the colouring on the gradient backgrounds"));
