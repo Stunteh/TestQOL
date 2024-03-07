@@ -7,18 +7,18 @@ class ClientUtils
 public:
 	static void Setup(bool android = false)
 	{
-        SetupLevel();
-        SetupBypass();        
-        SetupCosmetic();
-        SetupIconEffects();
-        SetupSpeedhack();
+        SetupSeviye();
+        SetupBosgecme();        
+        SetupKozmetik();
+        SetupSimgeEfektleri();
+        SetupHizHilesi();
         //SetupStatus();
 
         //SetupVariables(android);
 
         Window* level = new _Replay();
-        level->name = "Replay";
-        level->id = "replay-window";
+        level->name = "YenidenOynama";
+        level->id = "yenidenoynana-window";
         Client::instance->windows.push_back(level);
 
         SetupOptions(android);
@@ -29,48 +29,48 @@ public:
 
 #pragma region Setup Windows
 
-    static void SetupSpeedhack()
+    static void SetupHizHilesi()
     {
-        Window* speedhack = new Speedhack();
-        speedhack->name = "Speedhack";
-        speedhack->id = "speedhack-window";
+        Window* hizhilesi = new hizhilesi();
+        hizhilesi->name = "HizHilesi";
+        speedhack->id = "hizhilesi-window";
         speedhack->windowPos = ImVec2(50 + (50 + (Client::instance->tileSize.x)) * 2, 50);
 
-        speedhack->modules.push_back(new SpeedhackTop());
-        speedhack->modules.push_back(new SpeedhackEnabled());
+        speedhack->modules.push_back(new HizHilesiTop());
+        speedhack->modules.push_back(new HizHilesiEnabled());
         //speedhack->modules.push_back(new Module("Enabled", "speedhack-enabled", "Is the speedhack enabled?"));
-        speedhack->modules.push_back(new SpeedhackMus());
-        speedhack->modules.push_back(new SpeedhackGameplay());
+        speedhack->modules.push_back(new HizHilesiMus());
+        speedhack->modules.push_back(new HizHilesiGameplay());
         //speedhack->modules.push_back(new Module("Speedhack Music", "speedhack-music", "Speedhack all sound by your speed modifier", true));
 
-        (reinterpret_cast<SpeedhackTop*>(speedhack->modules.front()))->format = "%x";
+        (reinterpret_cast<HizHilesiTop*>(speedhack->modules.front()))->format = "%x";
 
-        Client::instance->windows.push_back(speedhack);
+        Client::instance->windows.push_back(HizHilesi);
     }
 
-    static void SetupLevel()
+    static void SetupSeviye()
     {
         Window* level = new Level();
-        level->name = "Level";
-        level->id = "level-window";
+        level->name = "Seviye";
+        level->id = "seviye-window";
         level->windowPos = ImVec2(50 + (50 + (Client::instance->tileSize.x)) * 1, 50);
 
-        level->modules.push_back(new Module("Noclip", "noclip", "Prevents the player from dying"));
-        level->modules.push_back(new Module("Instant Complete", "instant", "Instantly completes a level.\nMay not work because of the <cg>Geometry Dash</c> anti-cheat.\nUsing this cheat on a <co>rated level</c> <cr>WILL GET YOU LEADERBOARD BANNED</c>", false, "<cr>Warning!</c>\nUsing this cheat on a <co>rated level</c> <cr>WILL GET YOU LEADERBOARD BANNED</c>", true));
+        level->modules.push_back(new Module("Boşgeç", "boşgeç", "Oyuncuyu olmekten alikoyar."));
+        level->modules.push_back(new Module("Aninda tamamla", "aninda", "Aninda seviyeyi tanamlar.\n<cg>Geometry Dash</c>'in anti-hile'si yuzunden calismayabilir..\nBu hileyi <co>oylanmis seviyelerde</c> kullanmak <cr>SIZI LIDERLIK TABLOLARINDAN YASAKLAYABILIR.</c>", false, "<cr>Uyari</c>\nBu hileyi <co>oylanmis seviyelerde</c> kullanmak <cr>SIZI LIDERTABLOLARINDAN YASAKLAYABILIR.</c>", true));
 
-        level->modules.push_back(new Module("Confirm Practice", "conf-prac", "confirm practice mode help"));
-        level->modules.push_back(new Module("Confirm Restart", "conf-res", "confirm restart help"));
+        level->modules.push_back(new Module("Pratik Mod Onaylama", "conf-prac", "confirm practice mode help"));
+        level->modules.push_back(new Module("Yeniden Baslatma Onaylama", "conf-res", "confirm restart help"));
 
-        level->modules.push_back(new Module("Force Platformer", "force-plat", "Force Platformer mode on all levels."));
-        level->modules.push_back(new Module("Level Edit", "level-edit", "Allows you to edit any level"));
+        level->modules.push_back(new Module("Platformu Zorla", "force-plat", "Butun Seviyelere platform modunu zorlar"));
+        level->modules.push_back(new Module("Seviye Duzenleme", "level-edit", "Herhangi bir seviyeyi duzenlemenize izin verir."));
 
-        level->modules.push_back(new Module("No Mirror Portal", "no-reverse", "Disables mirror portals, only use if your a pussy <cl>jk</c>"));
-        level->modules.push_back(new Module("Instant Restart", "instant-restart", "Restarts the level instantly upon death"));
+        level->modules.push_back(new Module("Ayna Portali Yok", "no-reverse", "Ayna Portallarini Devre Disi Birakir,ama sadece bir orospu iseniz<cl>saka yaptim amk</c>"));
+        level->modules.push_back(new Module("Aniden Yeniden Baslama", "instant-restart", " Olme aninda seviyeyi yeniden baslatir"));
 
-        level->modules.push_back(new Module("Show Hitboxes", "show-hitboxes", "Shows object hitboxes"));
-        level->modules.push_back(new Module("Show Hitboxes On Death", "show-hitboxes-on-death", "Shows object hitboxes on death"));
+        level->modules.push_back(new Module("Vuruskutularini Goster", "show-hitboxes", "Obje vuruskutularini gosterir"));
+        level->modules.push_back(new Module("Olumde Vuruskutularini Goster", "show-hitboxes-on-death", "Olumde vuruskutularini gosterir.Istanbul Trafigi bunu surekligi yapmaya neden olabilir,<cl>saka saka</c>"));
 
-        level->modules.push_back(new Module("No Static Camera", "no-static", "Disables static camera"));
+        level->modules.push_back(new Module("Statik Kamera Yok", "no-static", "Statik Kamerayi Devre Disi Birakir."));
 
         #ifdef GEODE_IS_WINDOWS
         level->modules.push_back(new Module("All Modes Platformer", "all-plat", "Enabled All Gamemodes in platformer mode. <cl>Windows only</c>"));
@@ -88,10 +88,10 @@ public:
         Client::instance->windows.push_back(level);
     }
 
-    static void SetupBypass()
+    static void Bosgecme()
     {
-        Window* bypass = new Universal();
-        bypass->name = "Universal";
+        Window* bypass = new Evrensel();
+        bypass->name = "Evrensel";
         bypass->id = "bypass-window";
         bypass->windowPos = ImVec2(50 + (50 + (Client::instance->tileSize.x)) * 0, 50);
 
